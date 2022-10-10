@@ -2,18 +2,19 @@ const knex = require('knex');
 const express = require('express');
 var app = express();
 app.use(express.json());
-
+const db_host = 'mysql';
+const { MYSQL_USER, MYSQL_PASSWORD, MYSQL_DB } = process.env;
 
 const db = knex({
     client: 'mysql',
     version: '5.7',
     useNullAsDefault: true,
     connection: {
-        host: 'mysql',
+        host: db_host,
         port: 3306,
-        user: "root",
-        password: "secret",
-        database: "crm"
+        user: MYSQL_USER,
+        password: MYSQL_PASSWORD,
+        database: MYSQL_DB
     }
 })
 

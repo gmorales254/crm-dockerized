@@ -3,13 +3,13 @@ version: '3.7'
 services:
 
   app:
-    image: gmorales256/crm-dockerized:v6
+    image: gmorales256/crm-dockerized
     depends_on:
       - mysql
     ports:
       - '4000:4000'
     environment:
-      MYSQL_DB: crm
+      MYSQL_DB: mysql
       MYSQL_USER: root
       MYSQL_PASSWORD: secret
 
@@ -21,4 +21,3 @@ services:
       - '3306:3306'
     environment:
       MYSQL_ROOT_PASSWORD: secret
-      MYSQL_DATABASE: crm
